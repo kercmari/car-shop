@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
-import FormularioMultiStep from './components/FormularioMultiStep';
+import FormularioMultiStep from './components/FormularioMultiStep/FormularioMultiStep';
 
 const App = () => {
   return (

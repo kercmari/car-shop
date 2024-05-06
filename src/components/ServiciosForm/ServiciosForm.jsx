@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAppContext } from '../../context/AppContext';
 
 const ServiciosForm = ({ handleNextStep, handlePreviousStep }) => {
   const { state, dispatch } = useAppContext();
   const [serviciosSeleccionados, setServiciosSeleccionados] = useState([]);
+
+  useEffect(() => {
+    setServiciosSeleccionados(state.serviciosSeleccionados);
+  }, [state.serviciosSeleccionados]);
 
   const handleServiciosChange = (e) => {
     const { value, checked } = e.target;
