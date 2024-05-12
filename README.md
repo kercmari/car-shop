@@ -1,71 +1,79 @@
 # car-shop
-# Getting Started with Create React App
+En esta solución, hemos desarrollado un formulario multi-step en React utilizando el contexto (AppContext) para gestionar el estado global de la aplicación. El formulario consta de varios pasos donde el usuario proporciona información sobre el cliente, el vehículo, los servicios que desea realizar y finalmente se muestra un resumen de la orden de trabajo.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Desarrollo
 
-## Available Scripts
+Debemos tener Node.js y npm instalados en tu sistema.
+Clona el repositorio del proyecto o crea una nueva aplicación React utilizando Create React App (npx create-react-app my-app).
+Instala las dependencias necesarias:
+```
+bash
+Copy code
+npm install react-router-dom
+npm install @emotion/react @emotion/styled
+```
+Estructura del Proyecto:
+```
+my-app/
+  src/
+    components/
+      Button.jsx
+      Container.jsx
+      MultiSelect.jsx
+      Nav.jsx
+      Step.jsx
+    page/
+      ClienteForm.jsx
+      VehiculoForm.jsx
+      ServiciosForm.jsx
+      OrdenTrabajo.jsx
+      FormularioMultiStep.jsx
+    context/
+      AppContext.js
+    App.js
+    index.js
+    routes.js
+  public/
+    index.html
+```
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* components/: Contiene los componentes del formulario (ClienteForm.js, VehiculoForm.js, ServiciosForm.js, OrdenTrabajo.js).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* context/: Contiene el contexto de la aplicación (AppContext.js).
 
-### `npm test`
+* App.js: Punto de entrada principal de la aplicación que configura las rutas y el contexto.
+* index.js: Archivo de inicio de la aplicación React.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Desarrollo de los Componentes:
+Cada componente (ClienteForm, VehiculoForm, ServiciosForm, OrdenTrabajo) está diseñado para manejar un paso específico del formulario y se comunica con el contexto para almacenar los datos ingresados por el usuario.
 
-### `npm run build`
+Se utiliza el hook useAppContext para acceder al estado global y al dispatcher proporcionados por el contexto.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Rutas y Navegación:
+Se utiliza React Router DOM para la navegación entre los diferentes pasos del formulario.
+FormularioMultiStep.js controla la lógica de navegación y renderiza los componentes de paso correspondientes según el estado step.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Despliegue
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para desplegar la aplicación utilizando Docker, sigue estos pasos:
 
-### `npm run eject`
+```
+docker compose up -d
+```
+La aplicación estará disponible en http://localhost:3000 en tu navegador.
+### Vista Formulario Multi Step
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Step 1](image.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Despliegue AWS S3-CloutFront
+#### Despliegu een S3 
+Link generado por S3 , recordar que AWS academy una vez cerrado la sesion el servicio se apaga. 
+http://carshop.cloud.s3-website-us-east-1.amazonaws.com/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![alt text](image-1.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Referencia de Despligue
+https://medium.com/@Anita-ihuman/deploying-a-react-app-using-aws-s3-and-cloud-front-c0950808bf03

@@ -1,13 +1,18 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
 
 const VehiculoForm = ({ handleNextStep, handlePreviousStep }) => {
   const { state, dispatch } = useAppContext();
-  const [vehiculo, setVehiculo] = useState({ marca: '', modelo: '', placa: '', nivelGasolina: '', exterior: '' });
-  
-  useEffect(() => {
-    setVehiculo(state.vehiculo);
-  }, [state.vehiculo]);
+  const [vehiculo, setVehiculo] = useState({
+    marca: state.vehiculo.marca || '',
+    modelo: state.vehiculo.modelo || '',
+    placa: state.vehiculo.placa || '',
+    nivelGasolina: state.vehiculo.nivelGasolina || '',
+    exterior: state.vehiculo.exterior || '',
+   
+  }); 
+
+ 
 
   const handleVehiculoChange = (e) => {
     const { name, value } = e.target;
@@ -26,10 +31,11 @@ const VehiculoForm = ({ handleNextStep, handlePreviousStep }) => {
       <input type="text" name="modelo" value={vehiculo.modelo} onChange={handleVehiculoChange} required placeholder="Modelo" />
       <input type="text" name="placa" value={vehiculo.placa} onChange={handleVehiculoChange} required placeholder="Placa" />
       <input type="text" name="nivelGasolina" value={vehiculo.nivelGasolina} onChange={handleVehiculoChange} required placeholder="Nivel Tanque Gasolina" />
-      <input type="textarea" name="exterior" value={vehiculo.exterior} onChange={handleVehiculoChange} required placeholder="Estado exterior " />
-      {/* Otros campos del vehículo */}
-      <button type="submit">Siguiente</button> {/* Botón para pasar al siguiente paso */}
-      <button type="button" onClick={handlePreviousStep}>Volver</button> {/* Botón para volver al paso anterior */}
+      <textarea type="text" name="exterior" value={vehiculo.exterior} onChange={handleVehiculoChange} required placeholder="Estado exterior " />
+      <div className="buttons">
+     <button type="submit" className='btn-primary'> Siguiente </button>
+      <button type="button"  className='btn-secondary' onClick={handlePreviousStep}>Volver</button> 
+      </div>
     </form>
   );
 };
