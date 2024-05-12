@@ -9,8 +9,7 @@ Instala las dependencias necesarias:
 ```
 bash
 Copy code
-npm install react-router-dom
-npm install @emotion/react @emotion/styled
+npm install 
 ```
 Estructura del Proyecto:
 ```
