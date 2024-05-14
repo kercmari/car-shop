@@ -58,8 +58,9 @@ FormularioMultiStep.js controla la lógica de navegación y renderiza los compon
 Para desplegar la aplicación utilizando Docker, sigue estos pasos:
 
 ```
-docker compose up -d
+npm run build
 ```
+Luego estos archivos cargarlos a S#
 La aplicación estará disponible en http://localhost:3000 en tu navegador.
 ### Vista Formulario Multi Step
 
