@@ -8,7 +8,6 @@ Clona el repositorio del proyecto o crea una nueva aplicación React utilizando 
 Instala las dependencias necesarias:
 ```
 bash
-Copy code
 npm install 
 ```
 Estructura del Proyecto:
