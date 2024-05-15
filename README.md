@@ -55,7 +55,7 @@ FormularioMultiStep.js controla la lógica de navegación y renderiza los compon
 
 ### Despliegue
 
-Para desplegar la aplicación utilizando Docker, sigue estos pasos:
+Para desplegar la aplicación utilizando sigue estos pasos:
 
 ```
 npm run build
