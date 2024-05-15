@@ -60,8 +60,8 @@ Para desplegar la aplicación utilizando sigue estos pasos:
 ```
 npm run build
 ```
-Luego estos archivos cargarlos a S#
-La aplicación estará disponible en http://localhost:3000 en tu navegador.
+Luego los archivs generados se cargaron en un S3
+
 ### Vista Formulario Multi Step
 
 ![Step 1](image.png)
